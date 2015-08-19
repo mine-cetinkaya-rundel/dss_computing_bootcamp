@@ -26,33 +26,49 @@ output:
 
 ## Science retracts gay marriage paper without agreement of lead author LaCour
 
-- In May 2015 Science retracted a study of how canvassers can sway people's opinions about gay marriage published just 5 months ago.
+- In May 2015 Science retracted a study of how canvassers can sway 
+people's opinions about gay marriage published just 5 months ago.
 
-- Science Editor-in-Chief Marcia McNutt: Original survey data not made available for independent reproduction of results. + Survey incentives misrepresented. + Sponsorship statement false.
+- Science Editor-in-Chief Marcia McNutt: Original survey data not made 
+available for independent reproduction of results. + Survey incentives 
+misrepresented. + Sponsorship statement false.
 
-- Two Berkeley grad students who attempted to replicate the study quickly discovered that the data must have been faked.
+- Two Berkeley grad students who attempted to replicate the study quickly 
+discovered that the data must have been faked.
 
-- Methods we'll discuss today can't prevent this, but they can make it easier to discover issues.
+- Methods we'll discuss today can't prevent this, but they can make it 
+easier to discover issues.
 
 Source: http://news.sciencemag.org/policy/2015/05/science-retracts-gay-marriage-paper-without-lead-author-s-consent
 
 
 ## Seizure study retracted after authors realize data got "terribly mixed"
 
-From the authors of **Low Dose Lidocaine for Refractory Seizures in Preterm Neonates**:
+From the authors of **Low Dose Lidocaine for Refractory Seizures in 
+Preterm Neonates**:
 
-*"The article has been retracted at the request of the authors. After carefully re-examining the data presented in the article, they identified that data of two different hospitals got terribly mixed. The published results cannot be reproduced in accordance with scientific and clinical correctness."*
+*"The article has been retracted at the request of the authors. After 
+carefully re-examining the data presented in the article, they identified 
+that data of two different hospitals got terribly mixed. The published 
+results cannot be reproduced in accordance with scientific and clinical 
+correctness."*
 
 Source: http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/
 
 
 ## Bad spreadsheet merge kills depression paper, quick fix resurrects it
 
-- The authors informed the journal that the merge of lab results and other survey data used in the paper resulted in an error regarding the identification codes. Results of the analyses were based on the data set in which this error occurred. Further analyses established the results reported in this manuscript and interpretation of the data are not correct.
+- The authors informed the journal that the merge of lab results and other 
+survey data used in the paper resulted in an error regarding the 
+identification codes. Results of the analyses were based on the data set 
+in which this error occurred. Further analyses established the results 
+reported in this manuscript and interpretation of the data are not correct.
 
-- **Original conclusion:** Lower levels of CSF IL-6 were associated with current depression and with future depression [...].
+- **Original conclusion:** Lower levels of CSF IL-6 were associated with 
+current depression and with future depression [...].
 
-- **Revised conclusion:** Higher levels of CSF IL-6 and IL-8 were associated with current depression [...].
+- **Revised conclusion:** Higher levels of CSF IL-6 and IL-8 were 
+associated with current depression [...].
 
 Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it/
 
@@ -88,7 +104,9 @@ Train new researchers who don’t have any other workflow
 ## Departmental computing resources
 
 - Graduate student computers are shared departmental resources
-    + You'll be assigned a desktop to which you have priority, but it may be used by others as well (and you can use others' later if needed -- more on this later)
+    + You'll be assigned a desktop to which you have priority, but it may 
+    be used by others as well (and you can use others' later if needed -- 
+    more on this later)
 
 - Dedicated servers: 
     + `gort`: Undergrad
@@ -101,16 +119,25 @@ Train new researchers who don’t have any other workflow
 
 ## Remote connections
 
-- You will be doing much of your work on remote linux systems, primarily you will be interacting with these machines through a remote terminal and a shell. Using a shell gives you more power to do more tasks more efficiently with your computer.
+- You will be doing much of your work on remote linux systems, primarily 
+you will be interacting with these machines through a remote terminal and 
+a shell. Using a shell gives you more power to do more tasks more 
+efficiently with your computer.
 
-- OSX / Unix / Linux - these tools should already be installed and you should be able to access your shell through the Terminal application (name may vary slightly depending on your OS).
+- OSX / Unix / Linux - these tools should already be installed and you 
+should be able to access your shell through the Terminal application (name 
+may vary slightly depending on your OS).
 
-- Windows - there are several ways to install bash or a bash-like shell, the preferred method is to install the `git for windows` package: https://git-for-windows.github.io/.
+- Windows - there are several ways to install bash or a bash-like shell, 
+the preferred method is to install the `git for windows` package: 
+https://git-for-windows.github.io/.
 
 
 ## New accounts
 
-If you didn't have an account before you should now, the accounts have temporary passwords which you should change the first time you login using the `passwd` command.
+If you didn't have an account before you should now, the accounts have 
+temporary passwords which you should change the first time you login using 
+the `passwd` command.
 
 ```bash
 $ passwd
@@ -125,15 +152,15 @@ passwd: password updated successfully
 
 ## Secure shell (ssh)
 
-* A secure tool for connecting and interacting with remote systems
-* Uses public key encryption
-* Run a single command or work interactively
-* Lots of other neat tricks (proxy, port forwarding, many more)
+- A secure tool for connecting and interacting with remote systems
+- Uses public key encryption
+- Run a single command or work interactively
+- Lots of other neat tricks (proxy, port forwarding, many more)
 
 ## Connecting to saxon
 
-* Everyone should have a visitor account of the stats servers now
-* Try to connect to make sure everything is working...
+- Everyone should have a visitor account of the stats servers now
+- Try to connect to make sure everything is working...
 
 ```bash
 $ ssh cr173@saxon.stat.duke.edu
@@ -147,7 +174,9 @@ cr173@saxon.stat.duke.edu's password:
 
 ## Working remotely {.smaller}
 
-You should now be able to run commands remotely on `saxon`. We can interactively run commands on the remote system. Try `lscpu` to see the cpu configuration on server.
+You should now be able to run commands remotely on `saxon`. We can 
+interactively run commands on the remote system. Try `lscpu` to see the 
+cpu configuration on server.
 
 ```bash
 [cr173@saxon ~]$ lscpu
@@ -179,9 +208,9 @@ NUMA node1 CPU(s):     6-11,18-23
 
 Once you are done on the server you can exit by:
 
-* Running `exit`
-* Ctrl-D
-* Wait long enough (connection will time out)
+- Running `exit`
+- Ctrl-D
+- Wait long enough (connection will time out)
 
 ## One off commands {.smaller}
 
@@ -274,7 +303,8 @@ $ ssh cr173@saxon.stat.duke.edu "ls -la file*"
 -rw-r--r--+ 1 cr173 visitor 0 Aug 28 21:55 file
 ```
 
-Similarly if we change the file on the server, we can then download it locally as well:
+Similarly if we change the file on the server, we can then download it 
+locally as well:
 
 ```bash
 $ ssh cr173@saxon.stat.duke.edu "echo Hello! > file"
@@ -299,8 +329,8 @@ Hello!
 - Simple formal system for tracking all changes to a project
 
 - Time machine for your projects
-    * Track blame and/or praise
-    * Remove the fear of breaking things
+    + Track blame and/or praise
+    + Remove the fear of breaking things
 
 - Learning curve is steep, but when you need it you *REALLY* need it
 
@@ -350,20 +380,27 @@ Your closest collaborator is you six months ago, but you don’t reply to emails
 
 ## Donald Knuth "Literate Programming (1983)"
 
-"Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do."
+"Let us change our traditional attitude to the construction of programs: 
+Instead of imagining that our main task is to instruct a *computer* what 
+to do, let us concentrate rather on explaining to *human beings* what we 
+want a computer to do."
 
-"The practitioner of literate programming [...] strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other."
+"The practitioner of literate programming [...] strives for a program that 
+is comprehensible because its concepts have been introduced in an order 
+that is best for human understanding, using a mixture of formal and 
+informal methods that reinforce each other."
 
->- These ideas have been around for years!
->- and tools for putting them to practice have also been around
->- but they have never been as accessible as the current tools
+- These ideas have been around for years!
+- and tools for putting them to practice have also been around
+- but they have never been as accessible as the current tools
 
 
 ## Reproducibility checklist
 
 - Are the tables and figures reproducible from the code and data?
 - Does the code actually do what you think it does?
-- In addition to what was done, is it clear *why* it was done? (e.g., how were parameter settings chosen?)
+- In addition to what was done, is it clear *why* it was done? (e.g., how 
+were parameter settings chosen?)
 - Can the code be used for other data?
 - Can you extend the code to do other things?
 
@@ -371,7 +408,8 @@ Your closest collaborator is you six months ago, but you don’t reply to emails
 
 We need an environment where
 
-- data, analysis, and results are tightly connected, or better yet, inseparable
+- data, analysis, and results are tightly connected, or better yet, 
+inseparable
 
 - reproducibility is built in
     + the original data remains untouched
@@ -388,11 +426,11 @@ We need an environment where
 ## Why R?
 
 <div class="columns-2">
-* Programming language for data analysis
-* Free!
-* Open source
-* Widely used and supported across all disciplines
-* Can be used on Windows, Mac OS X, or Linux
++ Programming language for data analysis
++ Free!
++ Open source
++ Widely used and supported across all disciplines
++ Can be used on Windows, Mac OS X, or Linux
 
 ![RSplash](img/RSplash.png)
 </div>
@@ -400,17 +438,25 @@ We need an environment where
 
 ## Why not language X?
 
-* There are a number of other great programming tools out there that can also be used to improve the reproducibility of your analysis
-* The key is to use some type of language that will allow you to automate and document your analysis
-* Once you master one language you'll probably find it easier to learn another
+- There are a number of other great programming tools out there that can 
+also be used to improve the reproducibility of your analysis.
+
+- The key is to use some type of language that will allow you to automate 
+and document your analysis.
+
+- Once you master one language you'll probably find it easier to learn 
+another.
 
 
 ## Why RStudio?
 
-* RStudio $\ne$ R, it's instead an integrated development environment (IDE) for R
-* Gives you a single environment to combine your documentation and your analysis with markdown support
-* Runs on top of R
-* Gives you a bunch of really cool features, some of which we'll explore throughout the workshop
+- RStudio $\ne$ R, it's instead an integrated development environment 
+(IDE) for R
+- Gives you a single environment to combine your documentation and your 
+analysis with markdown support
+- Runs on top of R
+- Gives you a bunch of really cool features, some of which we'll explore 
+throughout the bootcamp
 
 
 ## Anatomy of RStudio
@@ -422,11 +468,14 @@ We need an environment where
 
 ## Anatomy of RStudio (cont.)
 
-* Left: Console
-    * Every time you launch RStudio, it will have the same text at the top of the console telling you the version of R that you’re running. 
-    * Below that information is the prompt. 
-* Upper right: workspace and a history of the commands that you've previously entered
-* Lower right: Any plots that you generate + access to files, help, packages
+- Left: Console
+    + Every time you launch RStudio, it will have the same text at the top 
+    of the console telling you the version of R that you’re running. 
+    + Below that information is the prompt. 
+- Upper right: workspace and a history of the commands that you've 
+previously entered
+- Lower right: Any plots that you generate + access to files, help, 
+packages
 
 ## Accessing RStudio
 
@@ -436,7 +485,9 @@ We need an environment where
 
 ## Create a project
 
-RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents.
+RStudio projects make it straightforward to divide your work into multiple 
+contexts, each with their own working directory, workspace, history, and 
+source documents.
 
 - File -> New Project -> Existing Directory
 
@@ -451,12 +502,15 @@ RStudio projects make it straightforward to divide your work into multiple conte
 ## Edit and commit a file
 
 - Make changes to `README.md` and save
-    + Learn more Markdown syntax at https://help.github.com/articles/markdown-basics/
+    + Learn more Markdown syntax at 
+    https://help.github.com/articles/markdown-basics/
 
-- In the *Git* pane, check *Staged* for the file you changes, and click *Commit*
+- In the *Git* pane, check *Staged* for the file you changes, and click 
+*Commit*
     + a pop-up window will appear
 
-- Review the diff and add an **informative** commit message and click *Commit*
+- Review the diff and add an **informative** commit message and click 
+*Commit*
 
 - Close the pop-up window, in the *Git* pane, click *Push*
     + this will prompt you to enter your GitHub login info
@@ -476,34 +530,117 @@ RStudio projects make it straightforward to divide your work into multiple conte
     
 - Push
 
+## R packages
+
+- Packages are the fundamental units of reproducible R code. They include 
+reusable R functions, the documentation that describes how to use them, 
+and sample data.
+
+- In the following exercises we'll use `curl`, `dplyr`, and `ggplot2` 
+packages.
+
+- Install these packages bu running the following in the *Console*
+
+```{r eval = FALSE}
+install.packages("curl")
+install.packages("dplyr")
+install.packages("ggplot2")
+```
+
+- Note that you will also need to load them in your markdown file (R code 
+goes in chunks)
+
+```{r}
+library("curl")
+library("dplyr")
+library("ggplot2")
+```
+
 ## Exercise 1
 
 It's your lucky day, you got some data!
 
+Load the data using the `read.csv` function
 
+```{r}
+gap <- read.csv(curl("http://bit.ly/gap_data"))
+```
+
+## 
+
+**Ex 1: Visualize the relationship between GDP and life expectancy for 
+countries in Europe in 1952 using a scatter plot.**
+
+```{r, fig.height=3.75, fig.width=7}
+eu_52 <- gap %>%
+  filter(continent == "Europe", year == 1952)
+ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()                                          
+```
+
+## 
+
+**Ex 2: Add year 1967 in another color.**
+
+1. Create a subset of `gap` for Europe in 1952 **and 1967** and call it 
+`eu_5267`. Some hints to get you started:
+
+    + Update your subset to also include 1952: `year %in% c(1952, 1967)`.
+    + Update the name of the resulting data frame to `eu_5267`
+    
+2. Create the plot. Some more hints:
+
+    + Update the name of the data frame being referred to in the `ggplot` 
+    function.
+    + Add another aesthetic to the plot for plotting data from th two 
+    years in difference colors: `color = factor(year)`. Note that this 
+    says the color of the points should be determined by the year, and 
+    that we should consider year as a categorical (factor) variable 
+    (either 1952 or 1967).
+
+##
+
+```{r, fig.height=3.75, fig.width=7}
+eu_5267 <- gap %>%
+  filter(continent == "Europe", year %in% c(1952, 1967))
+ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp, 
+                           color = factor(year))) +
+  geom_point()                                          
+```
+
+##
+
+**Ex 3: Your collaborator realized that the data set they sent you 
+was wrong. Repeat the analysis with the updated dataset.**
+
+```{r}
+gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
+```
 
 # Using more than one machine
 
 ## Really big jobs
 
-What do you do when one machine is not enough? (Meaning everything is optimized and things still take forever)
+What do you do when one machine is not enough? (Meaning everything is
+optimized and things still take forever)
 
 <br/>
 
-* We will cover what to do if things can be parallelized
+- We will cover what to do if things can be parallelized
 
 <br/>
 
-* If they can't - learn to be patient
+- If they can't - learn to be patient
 
 
 ## Long running jobs
 
-Some of you may have noticed if you launch a long running process on a remote machine (or locally)
+Some of you may have noticed if you launch a long running process on a 
+remote machine (or locally)
 
-* If the connection closes your job dies
+- If the connection closes your job dies
 
-* Can be prevented by prefixing your command with `nohup`
+- Can be prevented by prefixing your command with `nohup`
 
 <div class="centered">
 `nohup Rscript long_analysis.R`
@@ -511,28 +648,29 @@ Some of you may have noticed if you launch a long running process on a remote ma
 
 <br style="margin:10px" />
 
-* Can check on status using `ps` or `top` but no way to directly interact with process
+- Can check on status using `ps` or `top` but no way to directly interact with process
 
-    * Good idea to pipe output to a file
+    + Good idea to pipe output to a file
 
-    * Terminate using PID and `kill`
+    + Terminate using PID and `kill`
 
-    * If you really want interactivity use `screen`
+    + If you really want interactivity use `screen`
 
 
 ## Being a good citizen
 
-* You are not the only user on a system - many of the departments systems also serve as desktops.
+- You are not the only user on a system - many of the departments systems 
+also serve as desktops.
 
-* Disrupt other users as little as possible
+- Disrupt other users as little as possible
 
-* Don't use all the CPU or all the memory
+- Don't use all the CPU or all the memory
 
-* Long running / multi-CPU jobs should use `nice`
+- Long running / multi-CPU jobs should use `nice`
 
-    * Lowers (or raises) the priority of your task
+    + Lowers (or raises) the priority of your task
 
-    * Prefix command, positive values indicate lower priority
+    + Prefix command, positive values indicate lower priority
 
 <div class="centered">
 `nice +19 Rscript long_analysis.R`
@@ -546,30 +684,34 @@ If you have a simple situation (e.g. run three model variants)
 
 Launch things manually 
 
-* ssh to several servers
+- ssh to several servers
 
-* Run the command with `nohup` and `nice`
+- Run the command with `nohup` and `nice`
 
-* Pipe output to a file
+- Pipe output to a file
 
-* Periodically check on progress
+- Periodically check on progress
 
 <br/>
 
-This type of thing is easily scriptable via the shell or R for more complex jobs
+This type of thing is easily scriptable via the shell or R for more 
+complex jobs
 
 
 ## Lots of parallelism?
 
-Use HTCondor - a distributed job management system that scavenges resources from systems in the department and/or university.
+Use HTCondor - a distributed job management system that scavenges 
+resources from systems in the department and/or university.
 
-* Used by Stats, and Physics, and OIT, and ...
+- Used by Stats, and Physics, and OIT, and ...
 
-* Easiest access to the largest pool of CPUs without having to deal with Duke's cluster
+- Easiest access to the largest pool of CPUs without having to deal 
+with Duke's cluster
 
-* Has limitations - not ideal for long running jobs in R
+- Has limitations - not ideal for long running jobs in R
 
-* Recently setup in the department, documentation and tools are still forthcoming
+- Recently setup in the department, documentation and tools are still 
+forthcoming
 
 
 ## Condor eligible jobs
@@ -580,15 +722,13 @@ Condor is ideal for embarrassingly parallel tasks
 
 Your task / job must ...
 
-* Be able to run in the background
+- Be able to run in the background
 
-* No direct interaction
+- No direct interaction
 
-* Moderate run times 
+- Moderate run times 
 
-* *Single threaded*
-
-
+- *Single threaded*
 
 
 ## Condor Submit files
@@ -632,13 +772,14 @@ The universe type controls how condor runs jobs
 
 <br/>
 
-Unless you know what you are doing / have a compelling reason you should be using **vanilla**
+Unless you know what you are doing / have a compelling reason you should 
+be using **vanilla**
 
-  * Allows for almost any serial job
+  - Allows for almost any serial job
 
-  * Automated file handling (copies input and output files)
+  - Automated file handling (copies input and output files)
 
-  * *No checkpointing*
+  - *No checkpointing*
 
 
 ## queue
@@ -668,7 +809,8 @@ queue
 
 ## Requirements and Rank
 
-*Requirements* keyword is used to specify necessary characteristics for your job, e.g.
+*Requirements* keyword is used to specify necessary characteristics for 
+your job, e.g.
 
 * `OpSys == "LINUX"` - require linux
 
@@ -678,7 +820,8 @@ queue
 
 <br/>
 
-It is also possible to express system *preferences* using the `rank` keyword
+It is also possible to express system *preferences* using the `rank` 
+keyword
 
 
 
