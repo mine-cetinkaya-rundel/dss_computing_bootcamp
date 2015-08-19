@@ -374,6 +374,10 @@ Your closest collaborator is you six months ago, but you don’t reply to emails
 
 - Best practices for version control
 
+## Learn more
+
+https://try.github.io
+
 # Scripting and literate programming 
 
 ## Donald Knuth "Literate Programming (1983)"
