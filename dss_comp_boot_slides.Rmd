@@ -497,6 +497,34 @@ source documents.
 
 - `README.md`: By default contains the description of the repo
 
+## What is markdown?
+
+- Markdown is a lightweight markup language for creating HTML (or XHTML) 
+documents.
+
+- Markup languages are designed to produce documents from human readable 
+text (and annotations).
+
+- Some of you may be familiar with LaTeX. This is another (less human 
+friendly) markup language for creating pdf documents.
+
+- Why I love Markdown:
+    + Easy to learn and use.
+    + Focus on **content**, rather than **coding** and debugging 
+    **errors**.
+    + Once you have the basics down, you can get fancy and add HTML,
+    JavaScript, and CSS.
+    
+## Why should I use Markdown?
+
+If you have an annoying process for authoring for the web ...
+
+or
+
+If you avoid authoring for the web, because you're not sure how ...
+
+**start writing in Markdown**!
+
 ## Edit and commit a file
 
 - Make changes to `README.md` and save
@@ -626,6 +654,20 @@ gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
 ## Ex 3 done?
 
 commit, and push, we're done with exercises for the day
+
+## Organizing a more complex analysis
+
+- Use folders: raw_data, processed_data, code, figures, etc.
+
+- Number your script files:
+    + `00_load_data.R`
+    + `01_data_cleanup.R`
+    + `02_eda.R`
+    + ...
+
+- Use informative names that indicate versioning
+    + use dates
+    + avoid things like `project_fin`, `project_finalfinal`, etc.
 
 # Using more than one machine
 
