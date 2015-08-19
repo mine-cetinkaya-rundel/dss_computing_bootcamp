@@ -10,15 +10,13 @@ output:
 
 ## Materials
 
-- Slides at 
-- All source code at 
+- Slides at http://bit.ly/comp_boot_slides
+- All source code at http://bit.ly/comp_boot_repo
 - *Very* useful resources from RStudio:
-    + [RMarkdown cheat sheet](http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-    + Others at http://www.rstudio.com/resources/cheatsheets
-        + ggplot2: for visualization
-        + dplyr: for data manipulation
-        + ...
-
+    + [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+    + [R Markdown reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+    + [Data wrangling with dplyr and tidyr cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+    + [Data visualization with ggplot2 cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/05/ggplot2-cheatsheet.pdf)
 
 
 
@@ -530,7 +528,7 @@ source documents.
     
 - Push
 
-## R packages
+## R packages {.smaller}
 
 - Packages are the fundamental units of reproducible R code. They include 
 reusable R functions, the documentation that describes how to use them, 
@@ -550,10 +548,10 @@ install.packages("ggplot2")
 - Note that you will also need to load them in your markdown file (R code 
 goes in chunks)
 
-```{r}
-library("curl")
-library("dplyr")
-library("ggplot2")
+```{r message=FALSE}
+library(curl)
+library(dplyr)
+library(ggplot2)
 ```
 
 ## Exercise 1
@@ -577,6 +575,10 @@ eu_52 <- gap %>%
 ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()                                          
 ```
+
+## Ex 1 done?
+
+commit
 
 ## 
 
@@ -608,14 +610,22 @@ ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp,
   geom_point()                                          
 ```
 
+## Ex 2 done?
+
+commit
+
 ##
 
 **Ex 3: Your collaborator realized that the data set they sent you 
-was wrong. Repeat the analysis with the updated dataset.**
+was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
 
 ```{r}
 gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
 ```
+
+## Ex 3 done?
+
+commit, and push, we're done with exercises for the day
 
 # Using more than one machine
 
