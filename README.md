@@ -39,6 +39,8 @@ Introducing some tools to solve these problems, specifically R/RStudio/RMarkdown
 
 - Karl Broman - [Wisc's Tools4RR](http://kbroman.org/Tools4RR/)
 
+- Karl Broman - [Reproducible Research](https://www.biostat.wisc.edu/~kbroman/presentations/repro_research_withnotes.pdf)
+
 - Case studies:
     - Science retracts gay marriage paper without agreement of lead author, http://news.sciencemag.org/policy/2015/05/science-retracts-gay-marriage-paper-without-lead-author-s-consent
     - Seizure study retracted after authors realize data got "terribly mixed", http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/
