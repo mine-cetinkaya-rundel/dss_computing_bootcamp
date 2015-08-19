@@ -1,0 +1,10 @@
+Universe     = vanilla
+Executable   = /usr/bin/R
+Input        = mcpi.R
+Output       = mcpi_out_$(Process)
+Log          = mcpi_log
+Arguments    = --slave
+Requirements = (OpSys == "LINUX" && Arch == "x86_64")
++Department  = StatSci
+
+queue 5
