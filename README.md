@@ -31,7 +31,7 @@ Introducing some tools to solve these problems, specifically R/RStudio/RMarkdown
 
 ## Acknowledgments 
 
-- Some of the materials are result of the NSF supported [Reproducible Science Curriculum Hackathon](https://github.com/Reproducible-Science-Curriculum/Reproducible-Science-Hackathon-Dec-08-2014) that was held December 8-11, 2014, at the National Evolutionary Synthesis Center ([NESCent](http://nescent.org/)) in Durham, NC.
+- [Reproducible Science Curriculum Hackathon](https://github.com/Reproducible-Science-Curriculum/Reproducible-Science-Hackathon-Dec-08-2014)
 
 - [GitHub's ssh help pages](https://help.github.com/categories/56/articles)
 
