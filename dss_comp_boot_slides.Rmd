@@ -478,6 +478,8 @@ RStudio projects make it straightforward to divide your work into multiple conte
 
 ## Exercise 1
 
+It's your lucky day, you got some data!
+
 
 
 # Using more than one machine
