@@ -131,20 +131,6 @@ the preferred method is to install the `git for windows` package:
 https://git-for-windows.github.io/.
 
 
-## New accounts
-
-If you didn't have an account before you should now, the accounts have 
-temporary passwords which you should change the first time you login using 
-the `passwd` command.
-
-```bash
-$ passwd
-Changing password for cr173.
-(current) UNIX password:
-Enter new UNIX password:
-Retype new UNIX password:
-passwd: password updated successfully
-```
 
 # On to ssh
 
@@ -155,8 +141,9 @@ passwd: password updated successfully
 - Run a single command or work interactively
 - Lots of other neat tricks (proxy, port forwarding, many more)
 
-## Connecting to saxon
+## Connecting to saxon / smith
 
+- PhD: `smith`, MS: `saxon`
 - Everyone should have a visitor account of the stats servers now
 - Try to connect to make sure everything is working...
 
@@ -209,67 +196,6 @@ Once you are done on the server you can exit by:
 - Running `exit`
 - Ctrl-D
 - Wait long enough (connection will time out)
-
-## One off commands {.smaller}
-
-If you want to just run one command on the remote system
-
-```bash
-$ ssh cr173@saxon.stat.duke.edu traceroute google.com
-traceroute to google.com (74.125.21.100), 30 hops max, 60 byte packets
- 1  152.3.7.126 (152.3.7.126)  49.697 ms  49.721 ms  49.789 ms
- 2  tel1-u_10_136_105_81_Po10-38.netcom.duke.edu (10.136.105.81)  0.937 ms  0.935 ms  0.981 ms
- 3  10.136.105.82 (10.136.105.82)  1.031 ms  1.066 ms  0.990 ms
- 4  tel-edge-gw1-t0-0-0-1.netcom.duke.edu (10.236.254.102)  1.753 ms  1.898 ms  1.706 ms
- 5  rlgh7600-gw-to-duke7600-gw.ncren.net (128.109.70.17)  1.948 ms  2.109 ms  2.183 ms
- 6  rtp-crs-gw-to-rlgh7600-gw.ncren.net (128.109.9.5)  6.315 ms  5.438 ms  5.391 ms
- 7  wscrs-gw-to-rtpcrs-gw.ncren.net (128.109.212.10)  6.668 ms  6.618 ms  6.631 ms
- 8  72.14.196.245 (72.14.196.245)  16.882 ms  16.814 ms  16.780 ms
- 9  72.14.233.54 (72.14.233.54)  17.030 ms  16.933 ms  17.042 ms
-10  66.249.94.6 (66.249.94.6)  17.257 ms 66.249.94.24 (66.249.94.24)  19.129 ms  19.014 ms
-11  64.233.175.15 (64.233.175.15)  19.940 ms 209.85.248.57 (209.85.248.57)  19.233 ms  19.234 ms
-12  * * *
-13  yv-in-f100.1e100.net (74.125.21.100)  17.507 ms  17.355 ms  17.345 ms
-```
-## {.smaller}
-
-```bash
-$ traceroute google.com
-traceroute: Warning: google.com has multiple addresses; using 74.125.196.101
-traceroute to google.com (74.125.196.101), 64 hops max, 52 byte packets
- 1  10.0.1.1 (10.0.1.1)  3.201 ms  1.752 ms  1.535 ms
- 2  * * *
- 3  xe-10-2-1.2185.rlghnca-rtr2.nc.rr.com (66.26.47.166)  17.119 ms  16.860 ms  11.795 ms
- 4  ae19.chrlncpop-rtr1.southeast.rr.com (24.93.64.2)  31.230 ms  17.191 ms  20.466 ms
- 5  bu-ether44.atlngamq46w-bcr00.tbone.rr.com (107.14.19.46)  33.966 ms
-    bu-ether34.atlngamq46w-bcr00.tbone.rr.com (107.14.19.48)  37.203 ms
-    bu-ether24.atlngamq46w-bcr00.tbone.rr.com (107.14.19.18)  37.560 ms
- 6  ae-1-0.pr0.atl20.tbone.rr.com (66.109.6.177)  27.589 ms
-    107.14.19.99 (107.14.19.99)  25.065 ms
-    107.14.19.11 (107.14.19.11)  34.266 ms
- 7  72.14.219.56 (72.14.219.56)  24.451 ms  39.234 ms  34.869 ms
- 8  64.233.174.2 (64.233.174.2)  49.994 ms
-    72.14.239.100 (72.14.239.100)  25.388 ms
-    72.14.233.56 (72.14.233.56)  47.003 ms
- 9  66.249.94.20 (66.249.94.20)  27.253 ms
-    66.249.94.6 (66.249.94.6)  23.964 ms  38.942 ms
-10  * 209.85.244.238 (209.85.244.238)  23.409 ms
-    209.85.242.136 (209.85.242.136)  24.692 ms
-11  * * *
-12  yk-in-f101.1e100.net (74.125.196.101)  30.140 ms  20.395 ms  30.106 ms
-```
-
-## Running more than one command
-
-```bash
-$ ssh cr173@saxon.stat.duke.edu "pwd;echo "";cd data;pwd;echo "";ls -l"
-/home/vis/cr173
-
-/home/vis/cr173/data
-
-total 2
-drwxr-xr-x+ 3 cr173 visitor 3 Dec  9  2013 epa_data
-```
 
 ## Secure copy (scp)
 
@@ -425,60 +351,6 @@ inseparable
 ![toolkit](img/toolkit.png)
 </center>
 
-## Why R?
-
-<div class="columns-2">
-+ Programming language for data analysis
-+ Free!
-+ Open source
-+ Widely used and supported across all disciplines
-+ Can be used on Windows, Mac OS X, or Linux
-
-![RSplash](img/RSplash.png)
-</div>
-
-
-## Why not language X?
-
-- There are a number of other great programming tools out there that can 
-also be used to improve the reproducibility of your analysis.
-
-- The key is to use some type of language that will allow you to automate 
-and document your analysis.
-
-- Once you master one language you'll probably find it easier to learn 
-another.
-
-
-## Why RStudio?
-
-- RStudio $\ne$ R, it's instead an integrated development environment 
-(IDE) for R
-- Gives you a single environment to combine your documentation and your 
-analysis with markdown support
-- Runs on top of R
-- Gives you a bunch of really cool features, some of which we'll explore 
-throughout the bootcamp
-
-
-## Anatomy of RStudio
-
-<center>
-![RSplashScreen](img/RStudioSplash.png)
-</center>
-
-
-## Anatomy of RStudio (cont.)
-
-- Left: Console
-    + Every time you launch RStudio, it will have the same text at the top 
-    of the console telling you the version of R that you’re running. 
-    + Below that information is the prompt. 
-- Upper right: workspace and a history of the commands that you've 
-previously entered
-- Lower right: Any plots that you generate + access to files, help, 
-packages
-
 ## Accessing RStudio
 
 - Go to http://smith.stat.duke.edu:8787/
@@ -586,9 +458,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-## Exercise 1
-
-It's your lucky day, you got some data!
+## It's your lucky day, you got some data!
 
 Load the data using the `read.csv` function
 
@@ -598,10 +468,11 @@ gap <- read.csv(curl("http://bit.ly/gap_data"))
 
 ## 
 
-**Ex 1: Visualize the relationship between GDP and life expectancy for 
+**Ex 1: (a) How many observations are in this dataset?
+(b) Visualize the relationship between GDP and life expectancy for 
 countries in Europe in 1952 using a scatter plot.**
 
-```{r, fig.height=3.75, fig.width=7}
+```{r, fig.height=3.5, fig.width=7}
 eu_52 <- gap %>%
   filter(continent == "Europe", year == 1952)
 ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
@@ -648,14 +519,14 @@ commit
 
 ##
 
-**Ex 3: Your collaborator realized that the data set they sent you 
+**Ex REDO: Your collaborator realized that the data set they sent you 
 was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
 
 ```{r}
 gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
 ```
 
-## Ex 3 done?
+## REDO done?
 
 commit, and push, we're done with exercises for the day
 
@@ -768,203 +639,6 @@ with Duke's cluster
 
 - Recently setup in the department, documentation and tools are still 
 forthcoming
-
-
-## Condor eligible jobs
-
-Condor is ideal for embarrassingly parallel tasks
-
-<br/>
-
-Your task / job must ...
-
-- Be able to run in the background
-
-- No direct interaction
-
-- Moderate run times 
-
-- *Single threaded*
-
-
-## Condor Submit files
-
-```
-Universe     = vanilla
-Executable   = /usr/bin/R
-Input        = mcpi.R
-Output       = mcpi_out_$(Process)
-Log          = mcpi_log
-Arguments    = --slave
-Requirements = (OpSys == "LINUX" && Arch == "x86_64")
-+Department  = StatSci
-
-queue 5
-```
-
-
-## input / output
-
-Condor interprets these arguments as the following shell command:
-
-<div class="centered">
-`executable arguments < input > output`
-</div>
-
-<br/>
-
-for our R example this amounts to
-
-<div class="centered">
-`/usr/bin/R --slave < mcpi.R > mcpi_out_1`
-</div>
-<br/>
-
-being run on each server chosen by Condor.
-
-## Condor Submit - universe
-
-The universe type controls how condor runs jobs
-
-<br/>
-
-Unless you know what you are doing / have a compelling reason you should 
-be using **vanilla**
-
-  - Allows for almost any serial job
-
-  - Automated file handling (copies input and output files)
-
-  - *No checkpointing*
-
-
-## queue
-
-`queue n` adds n job(s) to the pool using the preceding arguments.
-
-<br/>
-
-Used with `$(Process)`, which expands to the relevant process id
-
-<br/>
-
-Jobs can also be queued explicitly one by one
-
-```
-output       = mcpi_out_1
-log          = mcpi_log_1
-arguments    = --slave
-queue
-
-output       = mcpi_out_2
-log          = mcpi_log_2
-arguments    = --vanilla --quiet
-queue
-```
-
-
-## Requirements and Rank
-
-*Requirements* keyword is used to specify necessary characteristics for 
-your job, e.g.
-
-* `OpSys == "LINUX"` - require linux
-
-* `Arch == "x86_64"` - require 64 bit CPU
-
-* `Memory > 4096` - require more than 4GB of memory
-
-<br/>
-
-It is also possible to express system *preferences* using the `rank` 
-keyword
-
-
-
-## Submitting jobs
-
-Condor jobs must be submitted via the submit server
-
-```
-ssh submit.stat.duke.edu
-```
-
-<br/>
-
-Jobs are added to the queue via `condor_submit`
-
-
-```
-$ condor_submit mcpi.submit 
-Submitting job(s).....
-5 job(s) submitted to cluster 26.
-```
-
-
-
-## Checking status
-
-```
-$ condor_q
-
--- Submitter: submit.stat.duke.edu : <152.3.7.21:9830> : submit.stat.duke.edu
- ID      OWNER            SUBMITTED     RUN_TIME ST PRI SIZE CMD               
-  26.0   cr173          11/24 11:55   0+00:00:00 I  0   0.0  R --slave         
-  26.1   cr173          11/24 11:55   0+00:00:21 R  0   0.0  R --slave         
-  26.2   cr173          11/24 11:55   0+00:00:21 R  0   0.0  R --slave         
-  26.3   cr173          11/24 11:55   0+00:00:21 R  0   0.0  R --slave         
-  26.4   cr173          11/24 11:55   0+00:00:21 R  0   0.0  R --slave         
-
-5 jobs; 0 completed, 0 removed, 1 idle, 4 running, 0 held, 0 suspended
-```
-
-
-## Job details {.smaller}
-
-```
-$ condor_q -analyze 26.3
-
--- Submitter: submit.stat.duke.edu : <152.3.7.21:9830> : submit.stat.duke.edu
----
-026.003:  Request has not yet been considered by the matchmaker.
-
-User priority for cr173@stat.duke.edu is not available, attempting to analyze without it.
----
-026.003:  Run analysis summary.  Of 686 machines,
-      0 are rejected by your job's requirements 
-    168 reject your job because of their own requirements 
-      0 match and are already running your jobs 
-      0 match but are serving other users 
-    518 are available to run your job
-
-The following attributes are missing from the job ClassAd:
-
-GPU
-CheckpointPlatform
-```
-
-
-## Removing jobs / processes {.smaller}
-
-Removing a single process:
-```
-$ condor_rm 26.3
-Job 26.3 marked for removal
-```
-
-Removing an entire job:
-```
-$ condor_rm 26
-All jobs in cluster 26 have been marked for removal
-```
-
-Removing all jobs:
-```
-$ condor_rm -all
-All jobs have been marked for removal
-```
-
-
 
 # Acknowledgements
 
