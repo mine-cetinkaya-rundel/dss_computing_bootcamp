@@ -353,7 +353,9 @@ inseparable
 
 ## Accessing RStudio
 
-- Go to http://smith.stat.duke.edu:8787/
+- Go to 
+    + PhD: http://smith.stat.duke.edu:8787/
+    + MS: http://saxon.stat.duke.edu:8787/
 
 - Log in with your Net ID and password
 
