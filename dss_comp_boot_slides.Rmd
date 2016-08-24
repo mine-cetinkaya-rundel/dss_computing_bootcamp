@@ -214,10 +214,11 @@ If you avoid authoring for the web, because you're not sure how ...
 
 **start writing in Markdown**!
 
-## Download necessary files, and upload to RStudio Server
+## Download Rmd template and upload to RStudio
 
-**insert link to download**
+- Go to http://bit.ly/dss_comp_boot_temp and save the Rmd file
 
+- Then, upload to RStudio
 
 ## R packages {.smaller}
 
