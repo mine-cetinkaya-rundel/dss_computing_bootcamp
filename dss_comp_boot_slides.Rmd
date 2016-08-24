@@ -319,6 +319,10 @@ was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
 gap_upd <- read.csv("https://bit.ly/gap_data")
 ```
 
+## Formatting your document
+
+Help -> Markdown Quick Reference
+
 ## Workflow
 
 <center>
