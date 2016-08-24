@@ -9,12 +9,10 @@ output: html_document
 
 Load the following packages for 
 
-- loading data (`curl`)
 - data wrangling (`dplyr`), and 
 - data visualizaiton (`ggplot2`)
 
 ```{r message=FALSE}
-library(curl)
 library(dplyr)
 library(ggplot2)
 ```
@@ -22,7 +20,7 @@ library(ggplot2)
 ## Load data
 
 ```{r}
-gap <- read.csv(curl("http://bit.ly/gap_data"))
+gap <- read.csv("https://bit.ly/gap_data")
 ```
 
 ## Exercises
