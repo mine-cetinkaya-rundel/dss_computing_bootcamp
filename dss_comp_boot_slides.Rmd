@@ -10,8 +10,6 @@ output:
 
 ## Materials
 
-**update**
-
 - Slides at http://bit.ly/comp_boot_slides
 - All source code at http://bit.ly/comp_boot_repo
 - *Very* useful resources from RStudio:
@@ -19,8 +17,6 @@ output:
     + [R Markdown reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
     + [Data wrangling with dplyr and tidyr cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
     + [Data visualization with ggplot2 cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/05/ggplot2-cheatsheet.pdf)
-
-
 
 # Reproducibility: who cares?
 
@@ -87,7 +83,9 @@ Convince researchers to adopt a reproducible research workflow
 \#2
 Train new researchers who don’t have any other workflow
 
+<center>
 ![](img/two-pronged-fork.jpg)
+</center>
 
 </div>
 
@@ -185,7 +183,7 @@ inseparable
 ## Toolkit
 
 <center>
-![toolkit](img/toolkit.png)
+![](img/toolkit.png)
 </center>
 
 ## What is markdown?
@@ -227,13 +225,12 @@ If you avoid authoring for the web, because you're not sure how ...
 reusable R functions, the documentation that describes how to use them, 
 and sample data.
 
-- In the following exercises we'll use `curl`, `dplyr`, and `ggplot2` 
+- In the following exercises we'll use the `dplyr` and `ggplot2` 
 packages.
 
 - Install these packages bu running the following in the *Console*
 
 ```{r eval = FALSE}
-install.packages("curl")
 install.packages("dplyr")
 install.packages("ggplot2")
 ```
@@ -242,7 +239,6 @@ install.packages("ggplot2")
 goes in chunks)
 
 ```{r message=FALSE}
-library(curl)
 library(dplyr)
 library(ggplot2)
 ```
@@ -252,8 +248,18 @@ library(ggplot2)
 Load the data using the `read.csv` function
 
 ```{r}
-gap <- read.csv(curl("http://bit.ly/gap_data"))
+gap <- read.csv("https://bit.ly/gap_data")
 ```
+
+## Tidy data
+
+<center>
+![](img/tidy-data.png)
+</center>
+
+<br><br><br>
+
+Source: Grolemund and Wickham, R for Data Science, http://r4ds.had.co.nz/
 
 ## Exercise 1
 
@@ -263,7 +269,7 @@ gap <- read.csv(curl("http://bit.ly/gap_data"))
 nrow(gap)
 ```
 
-## Exercise 2
+## Exercise 2 {.smaller}
 
 **Visualize the relationship between GDP and life expectancy for countries in Europe in 1952 using a scatter plot.**
 
@@ -299,8 +305,7 @@ ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
 ```{r, fig.height=3.75, fig.width=7}
 eu_5267 <- gap %>%
   filter(continent == "Europe", year %in% c(1952, 1967))
-ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp, 
-                           color = factor(year))) +
+ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp, color = factor(year))) +
   geom_point()                                          
 ```
 
@@ -310,8 +315,19 @@ ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp,
 was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
 
 ```{r}
-gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
+gap_upd <- read.csv("https://bit.ly/gap_data")
 ```
+
+## Workflow
+
+<center>
+![](img/data-science.png)
+<center>
+
+<br><br><br><br><br>
+
+Source: Grolemund and Wickham, R for Data Science, http://r4ds.had.co.nz/
+
 
 ## Organizing a more complex analysis
 
@@ -326,14 +342,6 @@ gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
 - Use informative names that indicate versioning
     + use dates
     + avoid things like `project_fin`, `project_finalfinal`, etc.
-
-
-[left here]
-
-
-
-
-
 
 # On to ssh
 
@@ -400,48 +408,6 @@ Once you are done on the server you can exit by:
 - Ctrl-D
 - Wait long enough (connection will time out)
 
-## Secure copy (scp)
-
-Uses ssh to copy a file between systems
-
-```bash
-$ ls -la
-total 0
-drwxr-xr-x   2 rundel  staff    68 Aug 28 21:51 .
-drwxr-xr-x  98 rundel  staff  3332 Aug 28 21:51 ..
-$ touch file
-$ ls -la
-total 0
-drwxr-xr-x   3 rundel  staff   102 Aug 28 21:52 .
-drwxr-xr-x  98 rundel  staff  3332 Aug 28 21:51 ..
--rw-r--r--   1 rundel  staff     0 Aug 28 21:52 file
-```
-
-##
-
-Now we can upload the empty file
-
-```bash
-$ ssh cr173@saxon.stat.duke.edu "ls -la file*"
-ls: No match.
-$ scp file cr173@saxon.stat.duke.edu:~/
-file                                                   100%    0     0.0KB/s   00:00
-$ ssh cr173@saxon.stat.duke.edu "ls -la file*"
--rw-r--r--+ 1 cr173 visitor 0 Aug 28 21:55 file
-```
-
-Similarly if we change the file on the server, we can then download it 
-locally as well:
-
-```bash
-$ ssh cr173@saxon.stat.duke.edu "echo Hello! > file"
-$ ssh cr173@saxon.stat.duke.edu cat file
-Hello!
-$ scp cr173@saxon.stat.duke.edu:~/file ./
-file                                                   100%    7     0.0KB/s   00:00 
-$ cat file
-Hello!
-```
 
 # Version control
 
@@ -489,121 +455,29 @@ Your closest collaborator is you six months ago, but you don’t reply to emails
     
 # Git live demo
 
+## 
+
+<center>
+![](img/six_git_commands.jpg)
+</center>
+
 ## Git live demo
 
 - Create a GitHub account
 
-- Create a repository
+- Create a repository locally
 
-- Clone a repository
+- Connect local repository to GitHub
 
 - Working with a local and remote repository
-
-- Resolving merge conflicts
 
 - Best practices for version control
 
 ## Learn more
 
-https://try.github.io
+- Happy Git with R by Jenny Bryan: http://happygitwithr.com/
 
-
-
-# Using more than one machine
-
-## Really big jobs
-
-What do you do when one machine is not enough? (Meaning everything is
-optimized and things still take forever)
-
-<br/>
-
-- We will cover what to do if things can be parallelized
-
-<br/>
-
-- If they can't - learn to be patient
-
-
-## Long running jobs
-
-Some of you may have noticed if you launch a long running process on a 
-remote machine (or locally)
-
-- If the connection closes your job dies
-
-- Can be prevented by prefixing your command with `nohup`
-
-<div class="centered">
-`nohup Rscript long_analysis.R`
-</div>
-
-<br style="margin:10px" />
-
-- Can check on status using `ps` or `top` but no way to directly interact with process
-
-    + Good idea to pipe output to a file
-
-    + Terminate using PID and `kill`
-
-    + If you really want interactivity use `screen`
-
-
-## Being a good citizen
-
-- You are not the only user on a system - many of the departments systems 
-also serve as desktops.
-
-- Disrupt other users as little as possible
-
-- Don't use all the CPU or all the memory
-
-- Long running / multi-CPU jobs should use `nice`
-
-    + Lowers (or raises) the priority of your task
-
-    + Prefix command, positive values indicate lower priority
-
-<div class="centered">
-`nice +19 Rscript long_analysis.R`
-</div>
-
-## Simple / small parallelism?
-
-If you have a simple situation (e.g. run three model variants)
-
-<br/>
-
-Launch things manually 
-
-- ssh to several servers
-
-- Run the command with `nohup` and `nice`
-
-- Pipe output to a file
-
-- Periodically check on progress
-
-<br/>
-
-This type of thing is easily scriptable via the shell or R for more 
-complex jobs
-
-
-## Lots of parallelism?
-
-Use HTCondor - a distributed job management system that scavenges 
-resources from systems in the department and/or university.
-
-- Used by Stats, and Physics, and OIT, and ...
-
-- Easiest access to the largest pool of CPUs without having to deal 
-with Duke's cluster
-
-- Has limitations - not ideal for long running jobs in R
-
-- Recently setup in the department, documentation and tools are still 
-forthcoming
+- Try Git: https://try.github.io
 
 # Acknowledgements
 
