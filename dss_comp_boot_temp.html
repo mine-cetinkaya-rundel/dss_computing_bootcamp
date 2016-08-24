@@ -127,17 +127,15 @@ $(document).ready(function () {
 <h2>Load packages</h2>
 <p>Load the following packages for</p>
 <ul>
-<li>loading data (<code>curl</code>)</li>
 <li>data wrangling (<code>dplyr</code>), and</li>
 <li>data visualizaiton (<code>ggplot2</code>)</li>
 </ul>
-<pre class="r"><code>library(curl)
-library(dplyr)
+<pre class="r"><code>library(dplyr)
 library(ggplot2)</code></pre>
 </div>
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<pre class="r"><code>gap &lt;- read.csv(curl(&quot;http://bit.ly/gap_data&quot;))</code></pre>
+<pre class="r"><code>gap &lt;- read.csv(&quot;https://bit.ly/gap_data&quot;)</code></pre>
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
