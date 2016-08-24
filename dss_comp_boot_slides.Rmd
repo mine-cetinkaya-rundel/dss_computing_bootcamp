@@ -1,7 +1,7 @@
 ---
 title: "DSS Comptuing Bootcamp"
 author: "Mine Çetinkaya-Rundel and Colin Rundel"
-date: "Aug 19 and Aug 21, 2015"
+date: "Aug 24 and Aug 26, 2016"
 output:
   ioslides_presentation:
     highlight: pygments
@@ -9,6 +9,8 @@ output:
 ---
 
 ## Materials
+
+**update**
 
 - Slides at http://bit.ly/comp_boot_slides
 - All source code at http://bit.ly/comp_boot_repo
@@ -85,7 +87,7 @@ Convince researchers to adopt a reproducible research workflow
 \#2
 Train new researchers who don’t have any other workflow
 
-![two prongs](img/two-pronged-fork.jpg)
+![](img/two-pronged-fork.jpg)
 
 </div>
 
@@ -95,7 +97,8 @@ Train new researchers who don’t have any other workflow
 
 - Literate programming $\rightarrow$ R Markdown
 
-- Version control $\rightarrow$ Git / GitHub
+- Version control $\rightarrow$ git / GitHub
+
 
 # Departmental computing resources
 
@@ -129,6 +132,206 @@ may vary slightly depending on your OS).
 - Windows - there are several ways to install bash or a bash-like shell, 
 the preferred method is to install the `git for windows` package: 
 https://git-for-windows.github.io/.
+
+## Accessing RStudio
+
+- Go to 
+    + PhD: http://smith.stat.duke.edu:8787/
+    + MS: http://saxon.stat.duke.edu:8787/
+
+- Log in with your Net ID and password
+
+# Scripting and literate programming 
+
+## Donald Knuth "Literate Programming (1983)"
+
+"Let us change our traditional attitude to the construction of programs: 
+Instead of imagining that our main task is to instruct a *computer* what 
+to do, let us concentrate rather on explaining to *human beings* what we 
+want a computer to do."
+
+"The practitioner of literate programming [...] strives for a program that 
+is comprehensible because its concepts have been introduced in an order 
+that is best for human understanding, using a mixture of formal and 
+informal methods that reinforce each other."
+
+- These ideas have been around for years!
+- and tools for putting them to practice have also been around
+- but they have never been as accessible as the current tools
+
+
+## Reproducibility checklist
+
+- Are the tables and figures reproducible from the code and data?
+- Does the code actually do what you think it does?
+- In addition to what was done, is it clear *why* it was done? (e.g., how 
+were parameter settings chosen?)
+- Can the code be used for other data?
+- Can you extend the code to do other things?
+
+## Ambitious goal + many other concerns 
+
+We need an environment where
+
+- data, analysis, and results are tightly connected, or better yet, 
+inseparable
+
+- reproducibility is built in
+    + the original data remains untouched
+    + all data manipulations and analyses are inherently documented
+
+- documentation is human readable and syntax is minimal
+
+## Toolkit
+
+<center>
+![toolkit](img/toolkit.png)
+</center>
+
+## What is markdown?
+
+- Markdown is a lightweight markup language for creating HTML (or XHTML) 
+documents.
+
+- Markup languages are designed to produce documents from human readable 
+text (and annotations).
+
+- Some of you may be familiar with LaTeX. This is another (less human 
+friendly) markup language for creating pdf documents.
+
+- Why I love Markdown:
+    + Easy to learn and use.
+    + Focus on **content**, rather than **coding** and debugging 
+    **errors**.
+    + Once you have the basics down, you can get fancy and add HTML,
+    JavaScript, and CSS.
+    
+## Why should I use Markdown?
+
+If you have an annoying process for authoring for the web ...
+
+or
+
+If you avoid authoring for the web, because you're not sure how ...
+
+**start writing in Markdown**!
+
+## Download necessary files, and upload to RStudio Server
+
+**insert link to download**
+
+
+## R packages {.smaller}
+
+- Packages are the fundamental units of reproducible R code. They include 
+reusable R functions, the documentation that describes how to use them, 
+and sample data.
+
+- In the following exercises we'll use `curl`, `dplyr`, and `ggplot2` 
+packages.
+
+- Install these packages bu running the following in the *Console*
+
+```{r eval = FALSE}
+install.packages("curl")
+install.packages("dplyr")
+install.packages("ggplot2")
+```
+
+- Note that you will also need to load them in your markdown file (R code 
+goes in chunks)
+
+```{r message=FALSE}
+library(curl)
+library(dplyr)
+library(ggplot2)
+```
+
+## It's your lucky day, you got some data!
+
+Load the data using the `read.csv` function
+
+```{r}
+gap <- read.csv(curl("http://bit.ly/gap_data"))
+```
+
+## Exercise 1
+
+**How many observations are in this dataset?**
+
+```{r}
+nrow(gap)
+```
+
+## Exercise 2
+
+**Visualize the relationship between GDP and life expectancy for countries in Europe in 1952 using a scatter plot.**
+
+```{r, fig.height=3.5, fig.width=7}
+eu_52 <- gap %>%
+  filter(continent == "Europe", year == 1952)
+ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()                                          
+```
+
+## Exercise 3
+
+**Ex 2: Add year 1967 in another color.**
+
+1. Create a subset of `gap` for Europe in 1952 **and 1967** and call it 
+`eu_5267`. Some hints to get you started:
+
+    + Update your subset to also include 1952: `year %in% c(1952, 1967)`.
+    + Update the name of the resulting data frame to `eu_5267`
+    
+2. Create the plot. Some more hints:
+
+    + Update the name of the data frame being referred to in the `ggplot` 
+    function.
+    + Add another aesthetic to the plot for plotting data from th two 
+    years in difference colors: `color = factor(year)`. Note that this 
+    says the color of the points should be determined by the year, and 
+    that we should consider year as a categorical (factor) variable 
+    (either 1952 or 1967).
+
+##
+
+```{r, fig.height=3.75, fig.width=7}
+eu_5267 <- gap %>%
+  filter(continent == "Europe", year %in% c(1952, 1967))
+ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp, 
+                           color = factor(year))) +
+  geom_point()                                          
+```
+
+## REDO!
+
+**Ex REDO: Your collaborator realized that the data set they sent you 
+was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
+
+```{r}
+gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
+```
+
+## Organizing a more complex analysis
+
+- Use folders: raw_data, processed_data, code, figures, etc.
+
+- Number your script files:
+    + `00_load_data.R`
+    + `01_data_cleanup.R`
+    + `02_eda.R`
+    + ...
+
+- Use informative names that indicate versioning
+    + use dates
+    + avoid things like `project_fin`, `project_finalfinal`, etc.
+
+
+[left here]
+
+
+
 
 
 
@@ -304,247 +507,7 @@ Your closest collaborator is you six months ago, but you don’t reply to emails
 
 https://try.github.io
 
-# Scripting and literate programming 
 
-## Donald Knuth "Literate Programming (1983)"
-
-"Let us change our traditional attitude to the construction of programs: 
-Instead of imagining that our main task is to instruct a *computer* what 
-to do, let us concentrate rather on explaining to *human beings* what we 
-want a computer to do."
-
-"The practitioner of literate programming [...] strives for a program that 
-is comprehensible because its concepts have been introduced in an order 
-that is best for human understanding, using a mixture of formal and 
-informal methods that reinforce each other."
-
-- These ideas have been around for years!
-- and tools for putting them to practice have also been around
-- but they have never been as accessible as the current tools
-
-
-## Reproducibility checklist
-
-- Are the tables and figures reproducible from the code and data?
-- Does the code actually do what you think it does?
-- In addition to what was done, is it clear *why* it was done? (e.g., how 
-were parameter settings chosen?)
-- Can the code be used for other data?
-- Can you extend the code to do other things?
-
-## Ambitious goal + many other concerns 
-
-We need an environment where
-
-- data, analysis, and results are tightly connected, or better yet, 
-inseparable
-
-- reproducibility is built in
-    + the original data remains untouched
-    + all data manipulations and analyses are inherently documented
-
-- documentation is human readable and syntax is minimal
-
-## Toolkit
-
-<center>
-![toolkit](img/toolkit.png)
-</center>
-
-## Accessing RStudio
-
-- Go to 
-    + PhD: http://smith.stat.duke.edu:8787/
-    + MS: http://saxon.stat.duke.edu:8787/
-
-- Log in with your Net ID and password
-
-## Create a project
-
-RStudio projects make it straightforward to divide your work into multiple 
-contexts, each with their own working directory, workspace, history, and 
-source documents.
-
-- File -> New Project -> Existing Directory
-
-- Browse for the directory of the project you cloned from GitHub earlier
-
-## What is in the project?
-
-- `.gitignore`: Files you don't want tracked in the repo
-
-- `README.md`: By default contains the description of the repo
-
-## What is markdown?
-
-- Markdown is a lightweight markup language for creating HTML (or XHTML) 
-documents.
-
-- Markup languages are designed to produce documents from human readable 
-text (and annotations).
-
-- Some of you may be familiar with LaTeX. This is another (less human 
-friendly) markup language for creating pdf documents.
-
-- Why I love Markdown:
-    + Easy to learn and use.
-    + Focus on **content**, rather than **coding** and debugging 
-    **errors**.
-    + Once you have the basics down, you can get fancy and add HTML,
-    JavaScript, and CSS.
-    
-## Why should I use Markdown?
-
-If you have an annoying process for authoring for the web ...
-
-or
-
-If you avoid authoring for the web, because you're not sure how ...
-
-**start writing in Markdown**!
-
-## Edit and commit a file
-
-- Make changes to `README.md` and save
-    + Learn more Markdown syntax at 
-    https://help.github.com/articles/markdown-basics/
-
-- In the *Git* pane, check *Staged* for the file you changes, and click 
-*Commit*
-    + a pop-up window will appear
-
-- Review the diff and add an **informative** commit message and click 
-*Commit*
-
-- Close the pop-up window, in the *Git* pane, click *Push*
-    + this will prompt you to enter your GitHub login info
-    
-- Go to your repo on GitHub and confirm that changes have been made
-
-## Create and push a markdown file
-
-- File -> New File -> R Markdown
-
-- Compile and view HTML output
-
-- Add `.html` to the `.gitignore`, save, and commit
-
-- Commit the generated report
-    + Check *Staged* for the Rmd file and commit
-    
-- Push
-
-## R packages {.smaller}
-
-- Packages are the fundamental units of reproducible R code. They include 
-reusable R functions, the documentation that describes how to use them, 
-and sample data.
-
-- In the following exercises we'll use `curl`, `dplyr`, and `ggplot2` 
-packages.
-
-- Install these packages bu running the following in the *Console*
-
-```{r eval = FALSE}
-install.packages("curl")
-install.packages("dplyr")
-install.packages("ggplot2")
-```
-
-- Note that you will also need to load them in your markdown file (R code 
-goes in chunks)
-
-```{r message=FALSE}
-library(curl)
-library(dplyr)
-library(ggplot2)
-```
-
-## It's your lucky day, you got some data!
-
-Load the data using the `read.csv` function
-
-```{r}
-gap <- read.csv(curl("http://bit.ly/gap_data"))
-```
-
-## 
-
-**Ex 1: (a) How many observations are in this dataset?
-(b) Visualize the relationship between GDP and life expectancy for 
-countries in Europe in 1952 using a scatter plot.**
-
-```{r, fig.height=3.5, fig.width=7}
-eu_52 <- gap %>%
-  filter(continent == "Europe", year == 1952)
-ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
-  geom_point()                                          
-```
-
-## Ex 1 done?
-
-commit
-
-## 
-
-**Ex 2: Add year 1967 in another color.**
-
-1. Create a subset of `gap` for Europe in 1952 **and 1967** and call it 
-`eu_5267`. Some hints to get you started:
-
-    + Update your subset to also include 1952: `year %in% c(1952, 1967)`.
-    + Update the name of the resulting data frame to `eu_5267`
-    
-2. Create the plot. Some more hints:
-
-    + Update the name of the data frame being referred to in the `ggplot` 
-    function.
-    + Add another aesthetic to the plot for plotting data from th two 
-    years in difference colors: `color = factor(year)`. Note that this 
-    says the color of the points should be determined by the year, and 
-    that we should consider year as a categorical (factor) variable 
-    (either 1952 or 1967).
-
-##
-
-```{r, fig.height=3.75, fig.width=7}
-eu_5267 <- gap %>%
-  filter(continent == "Europe", year %in% c(1952, 1967))
-ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp, 
-                           color = factor(year))) +
-  geom_point()                                          
-```
-
-## Ex 2 done?
-
-commit
-
-##
-
-**Ex REDO: Your collaborator realized that the data set they sent you 
-was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
-
-```{r}
-gap_upd <- read.csv(curl("http://bit.ly/gap_data_upd"))
-```
-
-## REDO done?
-
-commit, and push, we're done with exercises for the day
-
-## Organizing a more complex analysis
-
-- Use folders: raw_data, processed_data, code, figures, etc.
-
-- Number your script files:
-    + `00_load_data.R`
-    + `01_data_cleanup.R`
-    + `02_eda.R`
-    + ...
-
-- Use informative names that indicate versioning
-    + use dates
-    + avoid things like `project_fin`, `project_finalfinal`, etc.
 
 # Using more than one machine
 
@@ -657,3 +620,54 @@ forthcoming
 - Karl Broman - [Reproducible Research](https://www.biostat.wisc.edu/~kbroman/presentations/repro_research_withnotes.pdf)
 
 - [An Introduction to Using HTCondor](http://research.cs.wisc.edu/htcondor/HTCondorWeek2014/presentations/MillerK_IntroTutorial.pdf)
+
+
+<!--
+
+## Create a project
+
+RStudio projects make it straightforward to divide your work into multiple 
+contexts, each with their own working directory, workspace, history, and 
+source documents.
+
+- File -> New Project -> Existing Directory
+
+- Browse for the directory of the project you cloned from GitHub earlier
+
+## What is in the project?
+
+- `.gitignore`: Files you don't want tracked in the repo
+
+- `README.md`: By default contains the description of the repo
+
+## Edit and commit a file
+
+- Make changes to `README.md` and save
+    + Learn more Markdown syntax at 
+    https://help.github.com/articles/markdown-basics/
+
+- In the *Git* pane, check *Staged* for the file you changes, and click 
+*Commit*
+    + a pop-up window will appear
+
+- Review the diff and add an **informative** commit message and click 
+*Commit*
+
+- Close the pop-up window, in the *Git* pane, click *Push*
+    + this will prompt you to enter your GitHub login info
+    
+- Go to your repo on GitHub and confirm that changes have been made
+
+## Create and push a markdown file
+
+- File -> New File -> R Markdown
+
+- Compile and view HTML output
+
+- Add `.html` to the `.gitignore`, save, and commit
+
+- Commit the generated report
+    + Check *Staged* for the Rmd file and commit
+    
+- Push
+-->

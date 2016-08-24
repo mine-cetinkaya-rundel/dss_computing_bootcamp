@@ -1,0 +1,57 @@
+---
+title: "DSS Computing Bootcamp Template"
+author: "Mine Cetinkaya-Rundel"
+date: "8/21/2015"
+output: html_document
+---
+
+## Load packages
+
+Load the following packages for 
+
+- loading data (`curl`)
+- data wrangling (`dplyr`), and 
+- data visualizaiton (`ggplot2`)
+
+```{r message=FALSE}
+library(curl)
+library(dplyr)
+library(ggplot2)
+```
+
+## Load data
+
+```{r}
+gap <- read.csv(curl("http://bit.ly/gap_data"))
+```
+
+## Exercises
+
+### Exercise 1
+
+How many observations are in this dataset?
+
+```{r nrow}
+nrow(gap)
+```
+
+### Exercise 2
+
+Visualize the relationship between GDP and life expectancy for 
+countries in Europe in 1952 using a scatter plot.
+
+```{r eu_52}
+eu_52 <- gap %>%
+  filter(continent == "Europe", year == 1952)
+ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()  
+```
+
+### Exercise 3
+
+Add year 1967 in another color.
+
+```{r eu_52_67}
+# enter code for this exercise here
+```
+
