@@ -316,7 +316,7 @@ ggplot(data = eu_5267, aes(x = gdpPercap, y = lifeExp, color = factor(year))) +
 was wrong. Repeat Exercises 1 and 2 with the updated dataset.**
 
 ```{r}
-gap_upd <- read.csv("https://bit.ly/gap_data")
+gap_upd <- read.csv("https://bit.ly/gap_data_upd")
 ```
 
 ## Formatting your document
