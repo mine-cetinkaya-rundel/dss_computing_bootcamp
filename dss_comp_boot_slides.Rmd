@@ -457,14 +457,15 @@ Your closest collaborator is you six months ago, but you don’t reply to emails
 
 - Branching
     + Smarter merges
-    
-# Git live demo
 
 ## 
 
 <center>
 ![](img/six_git_commands.jpg)
 </center>
+
+    
+# Git live demo
 
 ## Git live demo
 
